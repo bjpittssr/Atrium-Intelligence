@@ -1,7 +1,7 @@
 # VisionDeck by Atrium Intelligence — BalanceMi
-
+![VisionDeck dashboard](screenshot.png)
 <img width="2517" height="1309" alt="atrium-finaljpg" src="https://github.com/user-attachments/assets/07ef9f39-3bdb-44d4-b66b-a49c8b536a8a" />
-  ![VisionDeck dashboard](screenshot.png)
+
 
 VisionDeck is a polished operator cockpit for BalanceMi: a personal command
 surface that makes priorities, calendar pressure, manual intake, and read-only
