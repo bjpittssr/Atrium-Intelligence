@@ -1,0 +1,2903 @@
+/* VisionDeck R3B — Atrium Intelligence visual language */
+:root{--bg:#0b0f12;--bg2:#10161b;--panel:rgba(22,29,36,.72);--panel2:rgba(27,35,43,.58);--line:rgba(232,184,77,.22);--line2:rgba(255,255,255,.08);--gold:#e7b84d;--gold2:#c6a35a;--text:#f1f1ed;--muted:#9aa2aa;--green:#97f3a8;--danger:#a85c65;--crt:#8fffa6;--shadow:0 26px 80px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.05)}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:radial-gradient(circle at 70% -10%,rgba(231,184,77,.11),transparent 28%),linear-gradient(135deg,#090b0d,#10161b 48%,#08090b);color:var(--text);font-family:Inter,Montserrat,system-ui,-apple-system,Segoe UI,sans-serif;letter-spacing:.02em}body:before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:28px 28px;opacity:.45;pointer-events:none}.vd-shell{display:grid;grid-template-columns:112px minmax(0,1fr);gap:18px;min-height:100vh;padding:20px}.glass{background:linear-gradient(145deg,var(--panel),rgba(11,15,18,.7));border:1px solid var(--line);box-shadow:var(--shadow);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}.depth-xl{box-shadow:0 32px 90px rgba(0,0,0,.68),0 0 0 1px rgba(231,184,77,.08),inset 0 1px 0 rgba(255,255,255,.07)}.depth-lg{box-shadow:0 22px 60px rgba(0,0,0,.58),inset 0 1px 0 rgba(255,255,255,.06)}.depth-md{box-shadow:0 16px 44px rgba(0,0,0,.46),inset 0 1px 0 rgba(255,255,255,.05)}.vd-masthead{grid-column:1/-1;border-radius:24px;padding:20px 24px;display:flex;justify-content:space-between;gap:24px;align-items:center;min-height:116px}.brand-lockup{display:flex;gap:18px;align-items:center;min-width:0}.brand-orb{width:74px;height:74px;border-radius:20px;display:grid;place-items:center;overflow:hidden}.brand-orb img{width:70px;height:70px;object-fit:contain}.brand-title-wrap{min-width:0}.brand-title-img{display:block;max-width:min(720px,54vw);height:auto;filter:drop-shadow(0 12px 28px rgba(0,0,0,.5))}.brand-subline{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:.95rem}.header-intel{display:flex;align-items:center;gap:12px;justify-content:flex-end;flex-wrap:wrap}.glass-toggle{background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));border:1px solid rgba(231,184,77,.28);box-shadow:0 12px 28px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.09)}.clock-card,.inspire-card{border-radius:18px;padding:12px 16px;min-height:64px}.clock-card{min-width:178px}.clock-card strong,.clock-card span{display:block}.clock-card strong{font-size:.96rem}.inspire-card{max-width:380px}.micro,.eyebrow{display:block;color:var(--gold);text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;font-weight:800}.status-row{display:flex;gap:8px}.pill{display:inline-flex;align-items:center;justify-content:center;padding:9px 13px;border:1px solid var(--line2);border-radius:999px;color:var(--muted);font-weight:800;font-size:.8rem;text-transform:uppercase}.pill.green{color:var(--green);border-color:rgba(151,243,168,.35);background:rgba(42,132,75,.13)}.left-dock{grid-column:1;position:sticky;top:18px;align-self:start;border-radius:24px;padding:12px;display:flex;flex-direction:column;gap:10px}.dock-tab{appearance:none;border:1px solid var(--line2);background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));border-radius:16px;color:var(--text);padding:13px 10px;text-align:left;box-shadow:0 12px 26px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.05)}.dock-tab strong{display:block;font-size:.94rem}.dock-tab span{display:block;color:var(--muted);font-size:.7rem;letter-spacing:.16em}.dock-tab.active{border-color:rgba(231,184,77,.55);box-shadow:0 0 0 1px rgba(231,184,77,.14),0 18px 34px rgba(0,0,0,.43),inset 0 1px 0 rgba(255,255,255,.08)}.vd-main{grid-column:2;display:flex;flex-direction:column;gap:18px}.panel{border-radius:24px;padding:20px}.panel-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:16px}.panel h1,.panel h2{margin:.2rem 0;color:var(--text);letter-spacing:.04em}.panel p{color:var(--muted);font-size:1.02rem;line-height:1.45}.balance-stage{display:flex;align-items:center;gap:26px;border:1px solid var(--line2);border-radius:22px;padding:18px}.balance-gauge{width:154px;height:154px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(from 210deg,var(--green) 0 24%,var(--gold) 24% 62%,var(--danger) 62% 82%,rgba(255,255,255,.06) 82% 100%);position:relative;box-shadow:0 20px 50px rgba(0,0,0,.55)}.balance-gauge:before{content:"";position:absolute;inset:18px;border-radius:50%;background:#080b0e;box-shadow:inset 0 0 35px rgba(0,0,0,.85)}.balance-gauge span,.balance-gauge small{z-index:1}.balance-gauge span{font-size:2rem;color:#ffe28a;font-weight:900}.balance-gauge small{position:absolute;bottom:38px;color:var(--muted);letter-spacing:.22em}.chip-row{display:flex;flex-wrap:wrap;gap:8px}.chip{border:1px solid rgba(231,184,77,.25);border-radius:999px;padding:6px 10px;color:var(--gold);font-weight:800;font-size:.75rem}.priority-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:16px}.mini-card{border:1px solid var(--line2);border-radius:18px;padding:18px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018))}.mini-card span{text-transform:uppercase;color:var(--muted);font-weight:900;letter-spacing:.22em;font-size:.75rem}.mini-card strong{display:block;color:var(--gold);font-size:2rem;margin:12px 0}.week-strip{display:grid;grid-template-columns:repeat(7,minmax(100px,1fr));gap:12px}.day-card{border:1px solid var(--line2);border-radius:18px;padding:18px 14px;min-height:110px;text-align:left;color:var(--text);background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.017));box-shadow:0 14px 34px rgba(0,0,0,.35)}.day-card span,.day-card small{display:block;color:var(--muted);font-weight:900;letter-spacing:.18em}.day-card strong{display:block;color:#f0ca6b;font-size:1.15rem;margin:16px 0 4px}.day-card.hot{border-color:rgba(168,92,101,.45);background:linear-gradient(145deg,rgba(168,92,101,.12),rgba(255,255,255,.018))}.form-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:12px}.form-grid .wide{grid-column:1/-1}label{display:flex;flex-direction:column;gap:8px;color:var(--gold);font-weight:900;text-transform:uppercase;font-size:.78rem;letter-spacing:.16em}input,textarea,select{width:100%;background:rgba(3,6,9,.72);border:1px solid var(--line2);border-radius:16px;color:var(--text);padding:14px 16px;font:inherit;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}textarea{min-height:104px;resize:vertical}.button-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.btn{appearance:none;border:1px solid rgba(231,184,77,.42);background:linear-gradient(145deg,rgba(231,184,77,.22),rgba(231,184,77,.05));color:#ffe49c;border-radius:16px;padding:13px 18px;text-transform:uppercase;letter-spacing:.12em;font-weight:950;box-shadow:0 16px 34px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.08)}.btn.gold{background:linear-gradient(145deg,#f1c35f,#9d7429);color:#120d05}.btn.ghost{background:rgba(255,255,255,.025);color:#d4d9dd}.split-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}.proof-panel pre{min-height:250px;max-height:390px;overflow:auto;background:rgba(0,0,0,.38);border:1px solid var(--line2);border-radius:18px;padding:16px;color:#aef8b4}.crt-screen{min-height:250px;border-radius:18px;border:1px solid rgba(143,255,166,.24);background:linear-gradient(rgba(143,255,166,.05),rgba(143,255,166,.02)),repeating-linear-gradient(0deg,rgba(143,255,166,.045),rgba(143,255,166,.045) 1px,transparent 1px,transparent 4px),#07140c;color:var(--crt);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;padding:18px;box-shadow:inset 0 0 34px rgba(42,255,104,.13),0 18px 44px rgba(0,0,0,.42);white-space:pre-wrap}.placeholder-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.operator-feed{grid-column:1/-1}.operator-feed ul{list-style:none;padding:0;margin:10px 0 0}.operator-feed li{display:flex;justify-content:space-between;border-top:1px solid var(--line2);padding:10px 0;color:var(--muted)}.operator-feed b{color:var(--green)}@media(max-width:950px){.vd-shell{grid-template-columns:1fr;padding:14px}.vd-masthead{align-items:flex-start}.left-dock{grid-column:1;position:relative;top:0;display:grid;grid-template-columns:repeat(4,1fr)}.vd-main{grid-column:1}.vd-masthead,.split-row,.priority-grid,.placeholder-grid{grid-template-columns:1fr}.vd-masthead{flex-direction:column}.brand-title-img{max-width:88vw}.week-strip{grid-template-columns:repeat(2,1fr)}.form-grid{grid-template-columns:1fr}.split-row,.placeholder-grid{display:grid;grid-template-columns:1fr}}
+
+/* === VISIONDECK_FINAL_LOOK_R1B_START === */
+
+:root {
+  --vd-bg-0: #05080a;
+  --vd-bg-1: #081017;
+  --vd-bg-2: rgba(11, 18, 24, 0.82);
+  --vd-glass: rgba(13, 22, 29, 0.70);
+  --vd-glass-strong: rgba(17, 28, 36, 0.86);
+  --vd-line: rgba(226, 184, 77, 0.23);
+  --vd-line-blue: rgba(46, 139, 255, 0.40);
+  --vd-gold: #e7b844;
+  --vd-gold-soft: #f2cf71;
+  --vd-text: #f1f1ec;
+  --vd-muted: #9ca5ac;
+  --vd-green: #91f2a8;
+  --vd-blue: #2b8cff;
+  --vd-cyan: #51d7ff;
+  --vd-red: #b54a63;
+  --vd-depth-xl: 0 24px 80px rgba(0,0,0,.62), inset 0 1px 0 rgba(255,255,255,.055);
+  --vd-depth-md: 0 14px 34px rgba(0,0,0,.48), inset 0 1px 0 rgba(255,255,255,.045);
+  --vd-glow-gold: 0 0 0 1px rgba(231,184,68,.58), 0 0 22px rgba(231,184,68,.24), 0 18px 48px rgba(0,0,0,.62);
+  --vd-glow-blue: 0 0 0 1px rgba(43,140,255,.70), 0 0 28px rgba(43,140,255,.48), 0 0 64px rgba(43,140,255,.20);
+}
+
+html, body {
+  background:
+    radial-gradient(circle at 13% 0%, rgba(28, 90, 120, .20), transparent 34%),
+    radial-gradient(circle at 82% 9%, rgba(231, 184, 68, .08), transparent 31%),
+    linear-gradient(180deg, #05080a 0%, #071018 48%, #040607 100%) !important;
+}
+
+header,
+.masthead,
+.topbar,
+.top-bar,
+.app-header,
+.vd-masthead,
+[class*="masthead"],
+[class*="topbar"],
+[class*="header"] {
+  border-color: rgba(231,184,68,.24) !important;
+  background: linear-gradient(135deg, rgba(11,18,24,.88), rgba(7,13,17,.68)) !important;
+  box-shadow: var(--vd-depth-xl) !important;
+  backdrop-filter: blur(18px) saturate(135%) !important;
+}
+
+img[src*="visiondeck_logo"] {
+  width: 56px !important;
+  height: 56px !important;
+  max-width: 56px !important;
+  max-height: 56px !important;
+  object-fit: contain !important;
+  border-radius: 16px !important;
+  filter: drop-shadow(0 0 12px rgba(231,184,68,.42)) drop-shadow(0 14px 20px rgba(0,0,0,.52)) !important;
+}
+
+img[src*="visiondeck_title"] {
+  width: clamp(300px, 27vw, 430px) !important;
+  height: auto !important;
+  max-height: 75px !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+  filter: drop-shadow(0 0 10px rgba(231,184,68,.24)) drop-shadow(0 16px 30px rgba(0,0,0,.58)) !important;
+}
+
+*:has(> img[src*="visiondeck_title"]) {
+  max-width: 560px !important;
+}
+
+.today-card,
+.motivation-card,
+[class*="today"],
+[class*="motivation"],
+[class*="status-pill"],
+.pill,
+.badge {
+  border-color: rgba(231,184,68,.30) !important;
+  background: linear-gradient(180deg, rgba(18,28,35,.82), rgba(8,14,18,.68)) !important;
+  box-shadow: var(--vd-depth-md) !important;
+  backdrop-filter: blur(14px) saturate(130%) !important;
+}
+
+nav,
+.sidebar,
+.left-dock,
+.left-rail,
+[class*="sidebar"],
+[class*="left-dock"],
+[class*="left-rail"] {
+  background: linear-gradient(180deg, rgba(7,15,21,.88), rgba(5,9,13,.94)) !important;
+  border-color: rgba(231,184,68,.22) !important;
+  box-shadow: 0 22px 70px rgba(0,0,0,.58), inset 0 1px 0 rgba(255,255,255,.045) !important;
+  backdrop-filter: blur(16px) saturate(120%) !important;
+}
+
+nav button,
+.sidebar button,
+.left-dock button,
+.left-rail button,
+[class*="sidebar"] button,
+[class*="left-dock"] button,
+[class*="left-rail"] button {
+  border: 1px solid rgba(231,184,68,.22) !important;
+  background: linear-gradient(180deg, rgba(18,28,36,.86), rgba(7,13,17,.84)) !important;
+  box-shadow: 0 10px 24px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.045) !important;
+  color: var(--vd-text) !important;
+  border-radius: 14px !important;
+  min-height: 58px !important;
+}
+
+nav button:first-of-type,
+.sidebar button:first-of-type,
+.left-dock button:first-of-type,
+.left-rail button:first-of-type,
+[class*="sidebar"] button:first-of-type,
+[class*="left-dock"] button:first-of-type,
+[class*="left-rail"] button:first-of-type {
+  border-color: rgba(43,140,255,.82) !important;
+  box-shadow: var(--vd-glow-blue) !important;
+}
+
+section,
+.panel,
+.card,
+.glass,
+.pane,
+.widget,
+.module,
+.depth-xl,
+[class*="panel"],
+[class*="card"],
+[class*="pane"],
+[class*="module"] {
+  background: linear-gradient(145deg, rgba(14,23,30,.82), rgba(6,11,15,.76)) !important;
+  border-color: rgba(231,184,68,.20) !important;
+  box-shadow: var(--vd-depth-xl) !important;
+  backdrop-filter: blur(18px) saturate(125%) !important;
+}
+
+button,
+.glass-toggle,
+.toggle,
+.action,
+[class*="toggle"],
+[class*="action"] {
+  box-shadow: 0 12px 28px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.05) !important;
+}
+
+button:hover,
+.glass-toggle:hover,
+.toggle:hover,
+.action:hover,
+[class*="toggle"]:hover,
+[class*="action"]:hover {
+  border-color: rgba(231,184,68,.62) !important;
+  box-shadow: var(--vd-glow-gold) !important;
+  transform: translateY(-1px);
+}
+
+.domain-chip,
+.balance-domain-chip,
+.domain-pill,
+.chip,
+.tag,
+[data-domain-label],
+[data-vd-domain-chip="true"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  min-height: 34px !important;
+  padding: 0 14px !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(231,184,68,.32) !important;
+  background: linear-gradient(180deg, rgba(11,18,24,.90), rgba(5,10,14,.82)) !important;
+  color: var(--vd-text) !important;
+  box-shadow: 0 12px 24px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.055) !important;
+  font-weight: 750 !important;
+  letter-spacing: .02em !important;
+  text-transform: none !important;
+}
+
+[class*="gauge"],
+.balance-gauge,
+.gauge {
+  filter: drop-shadow(0 0 24px rgba(231,184,68,.18)) drop-shadow(0 20px 34px rgba(0,0,0,.54)) !important;
+}
+
+[class*="calendar"] .card,
+[class*="week"] .card,
+.day-card,
+.week-card {
+  border-color: rgba(231,184,68,.20) !important;
+  box-shadow: 0 18px 42px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.045) !important;
+}
+
+.crt-screen,
+.terminal,
+.command-terminal,
+[class*="terminal"] {
+  color: #9effb1 !important;
+  background:
+    repeating-linear-gradient(0deg, rgba(126,255,151,.045) 0 1px, transparent 1px 4px),
+    radial-gradient(circle at 20% 10%, rgba(43,255,130,.16), transparent 34%),
+    linear-gradient(180deg, rgba(4,39,18,.86), rgba(1,15,8,.92)) !important;
+  border-color: rgba(105,255,147,.28) !important;
+  box-shadow: 0 0 30px rgba(69,255,126,.12), inset 0 0 42px rgba(31,255,99,.08), var(--vd-depth-md) !important;
+  text-shadow: 0 0 7px rgba(126,255,151,.55) !important;
+}
+
+button:empty,
+span:empty {
+  display: none !important;
+}
+
+
+/* === VISIONDECK_FINAL_TRIM_R1M_START === */
+
+/* Dock must breathe. No clipping. */
+:root {
+  --vd-dock-width-r1m: 168px;
+}
+
+.vd-shell {
+  grid-template-columns: var(--vd-dock-width-r1m) minmax(0, 1fr) !important;
+  column-gap: 22px !important;
+}
+
+.left-dock {
+  width: var(--vd-dock-width-r1m) !important;
+  min-width: var(--vd-dock-width-r1m) !important;
+  max-width: var(--vd-dock-width-r1m) !important;
+  padding: 14px 12px !important;
+  overflow: visible !important;
+}
+
+.dock-tab {
+  width: 100% !important;
+  min-height: 64px !important;
+  padding: 11px 12px !important;
+  display: grid !important;
+  grid-template-columns: 30px minmax(0, 1fr) !important;
+  align-items: center !important;
+  column-gap: 10px !important;
+  overflow: visible !important;
+}
+
+.dock-tab strong,
+.dock-tab span {
+  overflow: visible !important;
+  text-overflow: clip !important;
+}
+
+.dock-tab strong {
+  white-space: nowrap !important;
+  font-size: 0.98rem !important;
+}
+
+.dock-tab span {
+  white-space: nowrap !important;
+  font-size: 0.70rem !important;
+  letter-spacing: 0.14em !important;
+}
+
+/* Masthead quote: wider, calmer, less chunky. */
+.header-intel {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 12px !important;
+}
+
+.inspire-card {
+  min-width: clamp(360px, 30vw, 560px) !important;
+  max-width: 560px !important;
+  min-height: 72px !important;
+  padding: 13px 18px !important;
+}
+
+.inspire-card .micro {
+  font-size: 0.66rem !important;
+  letter-spacing: 0.30em !important;
+  color: var(--gold, #e7bb4d) !important;
+  white-space: nowrap !important;
+}
+
+.inspire-card strong {
+  display: block !important;
+  font-size: 0.82rem !important;
+  line-height: 1.26 !important;
+  font-weight: 650 !important;
+  letter-spacing: 0.01em !important;
+  max-width: 100% !important;
+}
+
+.clock-card {
+  min-width: 170px !important;
+}
+
+/* Main canvas: manual entries no longer belongs at bottom. It lives in Intake drawer. */
+body.vd-manual-docked .vd-main > .manual-entry-panel,
+body.vd-manual-docked .vd-main > section[data-section="intake"] {
+  display: none !important;
+}
+
+/* Intake drawer — focal drilldown from dock. */
+.vd-dock-drawer {
+  position: fixed;
+  z-index: 80;
+  left: calc(var(--vd-dock-width-r1m) + 26px);
+  top: 164px;
+  width: min(760px, calc(100vw - var(--vd-dock-width-r1m) - 60px));
+  max-height: calc(100vh - 190px);
+  overflow: auto;
+  border: 1px solid rgba(231, 187, 77, 0.48);
+  border-radius: 22px;
+  background:
+    linear-gradient(135deg, rgba(16, 25, 29, 0.96), rgba(3, 7, 9, 0.92)),
+    rgba(7, 12, 15, 0.95);
+  box-shadow:
+    0 30px 90px rgba(0,0,0,0.78),
+    0 0 0 1px rgba(255,255,255,0.035) inset,
+    0 0 38px rgba(231,187,77,0.10);
+  backdrop-filter: blur(18px) saturate(140%);
+  transform: translateX(-14px) scale(0.985);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.vd-dock-drawer.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0) scale(1);
+}
+
+.vd-drawer-head {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px 14px;
+  background: linear-gradient(180deg, rgba(6, 10, 13, 0.98), rgba(6, 10, 13, 0.86));
+  border-bottom: 1px solid rgba(231,187,77,0.18);
+}
+
+.vd-drawer-head .eyebrow {
+  color: var(--gold, #e7bb4d);
+  letter-spacing: 0.30em;
+}
+
+.vd-drawer-head h2 {
+  margin: 4px 0 0;
+  font-size: 1.45rem;
+}
+
+.vd-drawer-close {
+  border: 1px solid rgba(231,187,77,0.50);
+  border-radius: 999px;
+  background: rgba(0,0,0,0.22);
+  color: #f4e8c0;
+  padding: 9px 14px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  cursor: pointer;
+}
+
+.vd-drawer-body {
+  padding: 18px 20px 22px;
+}
+
+.vd-drawer-body .panel,
+.vd-drawer-body section {
+  margin: 0 !important;
+}
+
+body.dock-focus-open .vd-main {
+  filter: blur(2.2px) saturate(0.78);
+  opacity: 0.48;
+  transition: filter 160ms ease, opacity 160ms ease;
+}
+
+body.dock-focus-open .vd-masthead {
+  filter: saturate(0.82);
+}
+
+/* Keep the Balance gauge readable. */
+.balance-stage,
+.balance-card,
+.balance-meter-wrap {
+  min-height: 150px !important;
+}
+
+.balance-gauge,
+.balance-ring,
+.balance-dial {
+  min-width: 150px !important;
+  min-height: 150px !important;
+}
+
+.balance-gauge .balance-label,
+.balance-ring .balance-label,
+.balance-dial .balance-label {
+  letter-spacing: 0.22em !important;
+  font-size: 0.70rem !important;
+}
+
+/* === VISIONDECK_FINAL_TRIM_R1M_END === */
+
+/* === VISIONDECK_FINAL_LOOK_R1B_END === */
+
+
+/* === VISIONDECK_MASTHEAD_FINAL_LOOK_R1D_START === */
+
+/* Base: keep the command surface compact, dark, and premium. */
+:root {
+  --vd-gold: #e7b84a;
+  --vd-gold-soft: rgba(231, 184, 74, 0.62);
+  --vd-gold-faint: rgba(231, 184, 74, 0.20);
+  --vd-blue-glow: rgba(60, 160, 255, 0.42);
+  --vd-panel: rgba(8, 13, 17, 0.80);
+  --vd-panel-deep: rgba(3, 7, 10, 0.88);
+  --vd-edge: rgba(231, 184, 74, 0.20);
+  --vd-text: rgba(246, 246, 240, 0.94);
+  --vd-muted: rgba(203, 207, 213, 0.68);
+}
+
+body {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(20, 45, 57, 0.34), transparent 30%),
+    radial-gradient(circle at 78% 4%, rgba(231, 184, 74, 0.10), transparent 25%),
+    linear-gradient(180deg, #030608 0%, #071014 42%, #020406 100%) !important;
+}
+
+.vd-shell {
+  padding: 18px 18px 34px !important;
+  gap: 14px !important;
+}
+
+/* Masthead: final-look boxed brand left, cards right. */
+.vd-masthead {
+  min-height: 124px !important;
+  display: grid !important;
+  grid-template-columns: minmax(520px, 680px) 1fr !important;
+  align-items: center !important;
+  gap: 26px !important;
+  padding: 18px 24px !important;
+  border: 1px solid var(--vd-edge) !important;
+  border-radius: 20px !important;
+  background:
+    linear-gradient(90deg, rgba(6, 14, 18, 0.95), rgba(7, 11, 14, 0.82)),
+    radial-gradient(circle at 8% 50%, rgba(231, 184, 74, 0.09), transparent 24%) !important;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.58),
+    inset 0 1px 0 rgba(255, 255, 255, 0.045),
+    inset 0 -1px 0 rgba(231, 184, 74, 0.07) !important;
+  overflow: hidden !important;
+}
+
+/* Gold-framed brand box from the target image. */
+.brand-lockup {
+  width: min(660px, 100%) !important;
+  max-width: 660px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 18px !important;
+  padding: 14px 24px 13px 18px !important;
+  border: 1px solid rgba(231, 184, 74, 0.58) !important;
+  border-radius: 18px !important;
+  background:
+    linear-gradient(145deg, rgba(9, 17, 22, 0.88), rgba(0, 0, 0, 0.34)),
+    radial-gradient(circle at 18% 50%, rgba(231, 184, 74, 0.12), transparent 28%) !important;
+  box-shadow:
+    0 0 0 1px rgba(231, 184, 74, 0.05),
+    0 16px 38px rgba(0, 0, 0, 0.55),
+    0 0 32px rgba(231, 184, 74, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.055) !important;
+  overflow: hidden !important;
+}
+
+.brand-orb {
+  flex: 0 0 78px !important;
+  width: 78px !important;
+  height: 78px !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 16px !important;
+  background: rgba(1, 6, 9, 0.72) !important;
+  border: 1px solid rgba(231, 184, 74, 0.24) !important;
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 0 24px rgba(231, 184, 74, 0.10) !important;
+}
+
+.brand-orb img {
+  width: 62px !important;
+  height: 62px !important;
+  display: block !important;
+  object-fit: contain !important;
+}
+
+.brand-title-wrap {
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  overflow: hidden !important;
+}
+
+.brand-title-img {
+  height: 48px !important;
+  width: auto !important;
+  max-width: 440px !important;
+  display: block !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+  filter:
+    drop-shadow(0 3px 8px rgba(0,0,0,0.58))
+    drop-shadow(0 0 10px rgba(231,184,74,0.10)) !important;
+}
+
+.brand-subline {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.08em !important;
+  color: var(--vd-muted) !important;
+  opacity: 0.78 !important;
+}
+
+.brand-subline span + span::before {
+  content: "·";
+  margin-right: 10px;
+  color: var(--vd-gold);
+  opacity: 0.60;
+}
+
+/* Right masthead intel cards. */
+.header-intel {
+  justify-self: end !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 12px !important;
+  min-width: 0 !important;
+}
+
+.clock-card,
+.inspire-card,
+.glass-toggle {
+  border: 1px solid rgba(231, 184, 74, 0.26) !important;
+  background: linear-gradient(145deg, rgba(20, 28, 34, 0.82), rgba(6, 10, 12, 0.66)) !important;
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255,255,255,0.05) !important;
+  backdrop-filter: blur(16px) saturate(130%) !important;
+}
+
+.clock-card,
+.inspire-card {
+  min-width: 178px !important;
+  min-height: 62px !important;
+  padding: 12px 14px !important;
+  border-radius: 12px !important;
+}
+
+.inspire-card {
+  min-width: 260px !important;
+  max-width: 300px !important;
+}
+
+.micro,
+.eyebrow {
+  color: var(--vd-gold) !important;
+  letter-spacing: 0.30em !important;
+  font-weight: 800 !important;
+}
+
+.status-row {
+  display: flex !important;
+  gap: 8px !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+}
+
+.pill {
+  min-height: 28px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(231, 184, 74, 0.20) !important;
+  background: rgba(12, 18, 23, 0.72) !important;
+  box-shadow:
+    0 10px 24px rgba(0,0,0,0.34),
+    inset 0 1px 0 rgba(255,255,255,0.04) !important;
+}
+
+.pill.green {
+  border-color: rgba(100, 255, 154, 0.45) !important;
+  color: #9af7a7 !important;
+  background: rgba(8, 48, 28, 0.48) !important;
+}
+
+/* Left dock: glass rail with active blue-gold energy, matching target. */
+.left-dock {
+  width: 120px !important;
+  padding: 12px 10px !important;
+  border-radius: 18px !important;
+  border: 1px solid rgba(70, 170, 255, 0.26) !important;
+  background:
+    linear-gradient(180deg, rgba(8, 16, 21, 0.88), rgba(3, 7, 10, 0.84)) !important;
+  box-shadow:
+    0 0 0 1px rgba(231,184,74,0.04),
+    0 22px 44px rgba(0,0,0,0.56),
+    inset 0 1px 0 rgba(255,255,255,0.045) !important;
+}
+
+.dock-tab {
+  min-height: 58px !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(231, 184, 74, 0.16) !important;
+  background: rgba(10, 16, 20, 0.70) !important;
+  box-shadow:
+    0 8px 18px rgba(0,0,0,0.34),
+    inset 0 1px 0 rgba(255,255,255,0.04) !important;
+}
+
+.dock-tab.active {
+  border-color: rgba(83, 172, 255, 0.88) !important;
+  box-shadow:
+    0 0 0 1px rgba(83, 172, 255, 0.35),
+    0 0 28px rgba(83, 172, 255, 0.44),
+    inset 0 0 18px rgba(83, 172, 255, 0.12) !important;
+}
+
+/* Panels: more pane depth and glass. */
+.glass,
+.panel,
+.hero-panel,
+.balance-stage,
+.weekly-panel,
+.manual-panel {
+  border-color: rgba(231, 184, 74, 0.17) !important;
+  background:
+    linear-gradient(145deg, rgba(11, 18, 23, 0.86), rgba(4, 8, 11, 0.76)) !important;
+  box-shadow:
+    0 20px 48px rgba(0, 0, 0, 0.46),
+    inset 0 1px 0 rgba(255, 255, 255, 0.045),
+    inset 0 -1px 0 rgba(231, 184, 74, 0.055) !important;
+  backdrop-filter: blur(18px) saturate(125%) !important;
+}
+
+.depth-xl {
+  box-shadow:
+    0 24px 70px rgba(0,0,0,0.62),
+    0 0 0 1px rgba(231,184,74,0.06),
+    inset 0 1px 0 rgba(255,255,255,0.05) !important;
+}
+
+.depth-lg {
+  box-shadow:
+    0 18px 42px rgba(0,0,0,0.52),
+    inset 0 1px 0 rgba(255,255,255,0.045) !important;
+}
+
+/* Balance row: larger gauge, clean domain chips, no [object Object] visual garbage. */
+.balance-stage {
+  min-height: 152px !important;
+  padding: 18px 20px !important;
+  align-items: center !important;
+}
+
+.balance-gauge,
+.gauge,
+.balance-orb {
+  width: 116px !important;
+  height: 116px !important;
+  flex: 0 0 116px !important;
+  filter:
+    drop-shadow(0 16px 30px rgba(0,0,0,0.52))
+    drop-shadow(0 0 14px rgba(231,184,74,0.12)) !important;
+}
+
+.domain-chip,
+.tag-chip,
+.chip,
+button[data-domain-chip],
+span[data-vd-domain-chip="true"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  min-height: 30px !important;
+  padding: 7px 14px !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(231,184,74,0.28) !important;
+  background:
+    linear-gradient(145deg, rgba(16, 23, 28, 0.92), rgba(5, 9, 12, 0.82)) !important;
+  color: rgba(246, 246, 240, 0.92) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.03em !important;
+  box-shadow:
+    0 10px 20px rgba(0,0,0,0.36),
+    inset 0 1px 0 rgba(255,255,255,0.045) !important;
+}
+
+/* Cards: target-like spacing and ghost icon marks without fake endpoints. */
+.summary-card,
+.day-card,
+.activity-card {
+  position: relative !important;
+  min-height: 112px !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+}
+
+.summary-card::after,
+.day-card::after {
+  position: absolute;
+  right: 22px;
+  top: 22px;
+  font-size: 44px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.08);
+  text-shadow: 0 0 18px rgba(231, 184, 74, 0.08);
+  pointer-events: none;
+}
+
+.summary-card:nth-of-type(1)::after { content: "♡"; }
+.summary-card:nth-of-type(2)::after { content: "⌁"; }
+.summary-card:nth-of-type(3)::after { content: "♧"; }
+
+.btn,
+button {
+  box-shadow:
+    0 12px 28px rgba(0,0,0,0.42),
+    inset 0 1px 0 rgba(255,255,255,0.05) !important;
+}
+
+.btn.ghost,
+#refreshTodayBtn {
+  border-color: rgba(231,184,74,0.46) !important;
+  color: rgba(255, 245, 205, 0.96) !important;
+}
+
+/* Mobile/tablet: keep masthead from wrapping into chaos. */
+@media (max-width: 980px) {
+  .vd-masthead {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .brand-lockup {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 12px 14px !important;
+  }
+
+  .brand-orb {
+    width: 62px !important;
+    height: 62px !important;
+    flex-basis: 62px !important;
+  }
+
+  .brand-orb img {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .brand-title-img {
+    height: 34px !important;
+    max-width: min(420px, 70vw) !important;
+  }
+
+  .brand-subline {
+    font-size: 0.72rem !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  .header-intel {
+    justify-self: stretch !important;
+    justify-content: flex-start !important;
+    flex-wrap: wrap !important;
+  }
+
+  .clock-card,
+  .inspire-card {
+    min-width: 150px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .brand-title-img {
+    height: 28px !important;
+    max-width: 64vw !important;
+  }
+
+  .brand-subline span:last-child {
+    display: none !important;
+  }
+
+  .left-dock {
+    width: 92px !important;
+  }
+
+  .dock-tab {
+    min-height: 52px !important;
+  }
+}
+
+/* === VISIONDECK_MASTHEAD_FINAL_LOOK_R1D_END === */
+
+
+/* === VISIONDECK_VISUAL_PARITY_R1E_START === */
+
+/* R1E is CSS-only. No endpoint, JS DOM rewrite, service, or DB mutation.
+   Target: match operator final-look reference with depth, glow, and cockpit object language. */
+
+:root {
+  --vd-gold: #e7b84d;
+  --vd-gold-soft: rgba(231, 184, 77, 0.32);
+  --vd-gold-hot: rgba(231, 184, 77, 0.62);
+  --vd-blue-glow: rgba(68, 171, 255, 0.52);
+  --vd-blue-soft: rgba(68, 171, 255, 0.18);
+  --vd-panel-top: rgba(18, 26, 31, 0.84);
+  --vd-panel-bottom: rgba(5, 8, 10, 0.94);
+  --vd-panel-line: rgba(231, 184, 77, 0.18);
+  --vd-panel-line-hot: rgba(231, 184, 77, 0.46);
+}
+
+/* Background: deeper cockpit field with subtle luminous texture. */
+html,
+body {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(68, 171, 255, 0.10), transparent 22%),
+    radial-gradient(circle at 70% -8%, rgba(231,184,77,.13), transparent 30%),
+    linear-gradient(135deg, #071015 0%, #10161b 46%, #06080a 100%) !important;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.10;
+  background:
+    repeating-linear-gradient(
+      115deg,
+      rgba(255,255,255,0.032) 0px,
+      rgba(255,255,255,0.032) 1px,
+      transparent 1px,
+      transparent 9px
+    ),
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,0.040), transparent 34%);
+  mix-blend-mode: screen;
+}
+
+/* Main shell proportions: final mock uses stronger left spine. */
+.vd-shell {
+  grid-template-columns: 132px minmax(0, 1fr) !important;
+  gap: 16px !important;
+  padding: 18px !important;
+}
+
+/* Universal glass: add reflections without hijacking button pseudo-elements. */
+.glass,
+.panel,
+.mini-card,
+.day-card,
+.clock-card,
+.inspire-card,
+.brand-lockup,
+.balance-stage {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.glass > *,
+.panel > *,
+.mini-card > *,
+.day-card > *,
+.clock-card > *,
+.inspire-card > *,
+.brand-lockup > *,
+.balance-stage > * {
+  position: relative;
+  z-index: 1;
+}
+
+.glass:not(.left-dock)::before,
+.panel::before,
+.mini-card::before,
+.day-card::before,
+.clock-card::before,
+.inspire-card::before,
+.brand-lockup::before,
+.balance-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.75;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.075), transparent 24%),
+    radial-gradient(circle at 20% 0%, rgba(231,184,77,0.08), transparent 36%);
+}
+
+.glass:not(.left-dock)::after,
+.panel::after,
+.mini-card::after,
+.day-card::after,
+.clock-card::after,
+.inspire-card::after,
+.brand-lockup::after,
+.balance-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    inset 0 -1px 0 rgba(0,0,0,0.44);
+}
+
+/* Masthead: more heroic, but not oversized. */
+.vd-masthead {
+  min-height: 132px !important;
+  padding: 16px 24px !important;
+  border-radius: 24px !important;
+  background:
+    radial-gradient(circle at 24% 0%, rgba(68,171,255,0.12), transparent 28%),
+    radial-gradient(circle at 70% 0%, rgba(231,184,77,0.12), transparent 30%),
+    linear-gradient(145deg, rgba(15,22,27,0.92), rgba(5,8,10,0.94)) !important;
+  border: 1px solid rgba(231,184,77,0.28) !important;
+  box-shadow:
+    0 28px 80px rgba(0,0,0,0.58),
+    0 0 0 1px rgba(231,184,77,0.05),
+    inset 0 1px 0 rgba(255,255,255,0.08) !important;
+}
+
+.brand-lockup {
+  min-width: min(720px, 46vw) !important;
+  min-height: 100px !important;
+  padding: 12px 18px !important;
+  border-radius: 18px !important;
+  border: 1px solid rgba(231,184,77,0.58) !important;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.055), rgba(255,255,255,0.015)),
+    rgba(7,10,12,0.62) !important;
+  box-shadow:
+    0 0 0 1px rgba(231,184,77,0.08),
+    0 0 28px rgba(231,184,77,0.13),
+    0 22px 52px rgba(0,0,0,0.50),
+    inset 0 1px 0 rgba(255,255,255,0.08) !important;
+}
+
+.brand-orb {
+  flex: 0 0 72px !important;
+  width: 72px !important;
+  height: 72px !important;
+  border: 1px solid rgba(231,184,77,0.42) !important;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(231,184,77,0.16), transparent 48%),
+    linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.015)) !important;
+  box-shadow:
+    0 0 24px rgba(231,184,77,0.14),
+    inset 0 1px 0 rgba(255,255,255,0.09) !important;
+}
+
+.brand-orb img {
+  width: 60px !important;
+  height: 60px !important;
+  filter:
+    drop-shadow(0 0 10px rgba(231,184,77,0.26))
+    drop-shadow(0 10px 20px rgba(0,0,0,0.44)) !important;
+}
+
+.brand-title-img {
+  height: 48px !important;
+  width: auto !important;
+  max-width: min(722px, 38vw) !important;
+  filter:
+    drop-shadow(0 0 10px rgba(231,184,77,0.14))
+    drop-shadow(0 12px 28px rgba(0,0,0,0.52)) !important;
+}
+
+.brand-subline {
+  margin-top: 4px !important;
+  color: rgba(231, 237, 242, 0.72) !important;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.65) !important;
+}
+
+/* Today / motivational cards: gold glass treatment from target. */
+.clock-card,
+.inspire-card {
+  border: 1px solid rgba(231,184,77,0.56) !important;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.065), rgba(255,255,255,0.018)),
+    rgba(10,14,17,0.72) !important;
+  box-shadow:
+    0 0 0 1px rgba(231,184,77,0.08),
+    0 0 24px rgba(231,184,77,0.12),
+    0 16px 36px rgba(0,0,0,0.44),
+    inset 0 1px 0 rgba(255,255,255,0.08) !important;
+}
+
+.status-row .pill {
+  min-height: 34px !important;
+  border-color: rgba(231,184,77,0.24) !important;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.065), rgba(255,255,255,0.018)) !important;
+  box-shadow:
+    0 12px 24px rgba(0,0,0,0.30),
+    inset 0 1px 0 rgba(255,255,255,0.07) !important;
+}
+
+/* Left dock: turn sidebar into cockpit spine. */
+.left-dock {
+  width: 132px !important;
+  padding: 14px 12px !important;
+  border-radius: 24px !important;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(68,171,255,0.15), transparent 28%),
+    linear-gradient(180deg, rgba(14,24,31,0.84), rgba(4,7,9,0.96)) !important;
+  border: 1px solid rgba(68,171,255,0.32) !important;
+  box-shadow:
+    0 0 0 1px rgba(231,184,77,0.08),
+    0 0 36px rgba(68,171,255,0.16),
+    18px 0 46px rgba(0,0,0,0.52),
+    inset 0 1px 0 rgba(255,255,255,0.07) !important;
+}
+
+.left-dock::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 18px;
+  pointer-events: none;
+  border: 1px solid rgba(68,171,255,0.12);
+  background:
+    linear-gradient(90deg, rgba(68,171,255,0.10), transparent 28%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.025) 0px,
+      rgba(255,255,255,0.025) 1px,
+      transparent 1px,
+      transparent 8px
+    );
+}
+
+.dock-tab {
+  position: relative !important;
+  min-height: 64px !important;
+  display: grid !important;
+  grid-template-columns: 28px 1fr !important;
+  column-gap: 10px !important;
+  align-items: center !important;
+  padding: 10px 10px !important;
+  border-radius: 15px !important;
+  border: 1px solid rgba(231,184,77,0.20) !important;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.018)),
+    rgba(5,9,12,0.68) !important;
+  box-shadow:
+    0 12px 26px rgba(0,0,0,0.36),
+    inset 0 1px 0 rgba(255,255,255,0.06) !important;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease !important;
+}
+
+.dock-tab::before {
+  content: "◆";
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #f0c86a;
+  border: 1px solid rgba(231,184,77,0.34);
+  background:
+    radial-gradient(circle at 50% 35%, rgba(231,184,77,0.18), transparent 58%),
+    rgba(0,0,0,0.28);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+  font-size: 0.85rem;
+}
+
+.dock-tab:nth-child(1)::before { content: "◎"; }
+.dock-tab:nth-child(2)::before { content: "▦"; }
+.dock-tab:nth-child(3)::before { content: "✚"; }
+.dock-tab:nth-child(4)::before { content: "▣"; }
+.dock-tab:nth-child(5)::before { content: ">_"; font-size: 0.66rem; font-weight: 950; }
+.dock-tab:nth-child(6)::before { content: "⬟"; }
+.dock-tab:nth-child(7)::before { content: "✦"; }
+.dock-tab:nth-child(8)::before { content: "♙"; }
+
+.dock-tab strong,
+.dock-tab span {
+  grid-column: 2 !important;
+}
+
+.dock-tab strong {
+  font-size: 0.86rem !important;
+  line-height: 1.05 !important;
+}
+
+.dock-tab span {
+  margin-top: -4px !important;
+  font-size: 0.62rem !important;
+  letter-spacing: 0.18em !important;
+}
+
+.dock-tab:hover {
+  transform: translateX(2px) !important;
+  border-color: rgba(231,184,77,0.45) !important;
+  box-shadow:
+    0 0 22px rgba(231,184,77,0.10),
+    0 16px 34px rgba(0,0,0,0.44),
+    inset 0 1px 0 rgba(255,255,255,0.08) !important;
+}
+
+.dock-tab.active {
+  border-color: rgba(68,171,255,0.78) !important;
+  background:
+    radial-gradient(circle at 0% 50%, rgba(68,171,255,0.22), transparent 58%),
+    linear-gradient(145deg, rgba(255,255,255,0.09), rgba(255,255,255,0.02)) !important;
+  box-shadow:
+    -4px 0 24px rgba(68,171,255,0.44),
+    0 0 0 1px rgba(231,184,77,0.14),
+    0 0 32px rgba(231,184,77,0.14),
+    0 22px 46px rgba(0,0,0,0.50),
+    inset 0 1px 0 rgba(255,255,255,0.10) !important;
+}
+
+.dock-tab.active::before {
+  color: #ffe28a;
+  border-color: rgba(231,184,77,0.7);
+  box-shadow:
+    0 0 18px rgba(231,184,77,0.28),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+}
+
+/* Main panels: stronger depth and reflections. */
+.panel {
+  border: 1px solid rgba(231,184,77,0.18) !important;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(68,171,255,0.08), transparent 28%),
+    radial-gradient(circle at 86% 0%, rgba(231,184,77,0.07), transparent 26%),
+    linear-gradient(145deg, rgba(17,25,31,0.78), rgba(5,8,10,0.94)) !important;
+  box-shadow:
+    0 22px 58px rgba(0,0,0,0.50),
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    inset 0 -1px 0 rgba(0,0,0,0.54) !important;
+}
+
+.panel-head {
+  align-items: center !important;
+}
+
+.panel h1 {
+  text-shadow: 0 2px 16px rgba(0,0,0,0.55) !important;
+}
+
+.panel-head .btn,
+button.btn,
+.btn,
+.glass-toggle {
+  border-color: rgba(231,184,77,0.54) !important;
+  box-shadow:
+    0 0 0 1px rgba(231,184,77,0.07),
+    0 0 22px rgba(231,184,77,0.10),
+    0 14px 32px rgba(0,0,0,0.38),
+    inset 0 1px 0 rgba(255,255,255,0.08) !important;
+}
+
+/* Balance overview: gauge and chips closer to target. */
+.balance-stage {
+  border-color: rgba(231,184,77,0.20) !important;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.045), rgba(255,255,255,0.012)),
+    rgba(3,7,9,0.52) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    0 18px 44px rgba(0,0,0,0.34) !important;
+}
+
+.balance-gauge {
+  width: 132px !important;
+  height: 132px !important;
+  flex: 0 0 132px !important;
+  box-shadow:
+    0 0 0 1px rgba(231,184,77,0.10),
+    0 0 28px rgba(231,184,77,0.14),
+    0 18px 44px rgba(0,0,0,0.50) !important;
+}
+
+.balance-gauge::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  pointer-events: none;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.chip-row {
+  gap: 10px !important;
+}
+
+.chip,
+.domain-chip,
+.tag-chip,
+button[data-domain-chip],
+span[data-vd-domain-chip="true"] {
+  position: relative !important;
+  min-height: 34px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 8px 13px !important;
+  color: #e8edf1 !important;
+  border: 1px solid rgba(231,184,77,0.26) !important;
+  border-radius: 10px !important;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.075), rgba(255,255,255,0.018)),
+    rgba(5,9,12,0.72) !important;
+  box-shadow:
+    0 12px 26px rgba(0,0,0,0.32),
+    inset 0 1px 0 rgba(255,255,255,0.07) !important;
+}
+
+.chip::before,
+.domain-chip::before,
+.tag-chip::before,
+button[data-domain-chip]::before,
+span[data-vd-domain-chip="true"]::before {
+  content: "◇";
+  color: #e7b84d;
+  font-size: 0.88rem;
+}
+
+/* Priority + calendar cards: object language without endpoint invention. */
+.mini-card,
+.day-card {
+  border-color: rgba(231,184,77,0.17) !important;
+  background:
+    radial-gradient(circle at 90% 20%, rgba(255,255,255,0.045), transparent 24%),
+    linear-gradient(145deg, rgba(255,255,255,0.055), rgba(255,255,255,0.015)),
+    rgba(7,11,14,0.78) !important;
+  box-shadow:
+    0 16px 42px rgba(0,0,0,0.42),
+    inset 0 1px 0 rgba(255,255,255,0.06) !important;
+}
+
+.mini-card {
+  min-height: 132px !important;
+}
+
+.mini-card strong {
+  color: #f0c86a !important;
+  text-shadow: 0 0 18px rgba(231,184,77,0.12) !important;
+}
+
+.day-card {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.day-card::after {
+  content: "◎";
+  position: absolute;
+  right: 18px;
+  top: 22px;
+  color: rgba(231, 237, 242, 0.22);
+  font-size: 1.7rem;
+}
+
+.day-card:nth-child(2)::after,
+.day-card:nth-child(4)::after { content: "▣"; }
+.day-card:nth-child(3)::after { content: "◎"; }
+.day-card:nth-child(5)::after { content: "↻"; }
+.day-card:nth-child(6)::after { content: "⌂"; }
+.day-card:nth-child(7)::after { content: "◷"; }
+
+.day-card.hot {
+  border-color: rgba(168,92,101,.42) !important;
+  background:
+    radial-gradient(circle at 90% 20%, rgba(168,92,101,.12), transparent 24%),
+    linear-gradient(145deg, rgba(168,92,101,.12), rgba(255,255,255,.018)) !important;
+}
+
+/* The green "same endpoints" pill should feel like a glass control. */
+button.green,
+.pill.green,
+.same-endpoints,
+#same-endpoints,
+[data-role="same-endpoints"] {
+  box-shadow:
+    0 0 0 1px rgba(151,243,168,0.08),
+    0 0 22px rgba(151,243,168,0.12),
+    0 14px 30px rgba(0,0,0,0.34),
+    inset 0 1px 0 rgba(255,255,255,0.08) !important;
+}
+
+/* Responsive preserve. */
+@media (max-width: 950px) {
+  .vd-shell {
+    grid-template-columns: 1fr !important;
+  }
+
+  .left-dock {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+
+  .dock-tab {
+    min-height: 58px !important;
+  }
+
+  .brand-lockup {
+    min-width: 100% !important;
+  }
+
+  .brand-title-img {
+    max-width: min(722px, 78vw) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .left-dock {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .balance-stage {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+  }
+
+  .brand-lockup {
+    gap: 12px !important;
+  }
+
+  .brand-orb {
+    width: 58px !important;
+    height: 58px !important;
+    flex-basis: 58px !important;
+  }
+
+  .brand-orb img {
+    width: 48px !important;
+    height: 48px !important;
+  }
+}
+
+/* === VISIONDECK_VISUAL_PARITY_R1E_END === */
+
+
+/* === VISIONDECK_LAYOUT_GLASS_ALIGNMENT_R1F_START === */
+
+/* CSS-only refinement pass. No endpoint or JS DOM changes. */
+
+.vd-shell {
+  grid-template-columns: 156px minmax(0, 1fr) !important;
+  gap: 18px !important;
+  padding: 20px 18px 18px 22px !important;
+  overflow: visible !important;
+}
+
+.vd-main,
+.panel,
+.balance-stage,
+.header-intel {
+  min-width: 0 !important;
+}
+
+.left-dock {
+  width: 156px !important;
+  min-width: 156px !important;
+  padding: 14px 14px !important;
+  margin-left: 0 !important;
+  overflow: visible !important;
+}
+
+.dock-tab {
+  min-height: 68px !important;
+  grid-template-columns: 34px 1fr !important;
+  column-gap: 12px !important;
+  padding: 11px 12px !important;
+  border-radius: 16px !important;
+}
+
+.dock-tab::before {
+  width: 30px !important;
+  height: 30px !important;
+  font-size: 0.92rem !important;
+  color: #f0c86a !important;
+  border-color: rgba(231,184,77,0.44) !important;
+}
+
+.dock-tab:nth-child(5)::before {
+  font-size: 0.70rem !important;
+}
+
+.vd-masthead {
+  padding: 16px 24px !important;
+  align-items: center !important;
+}
+
+.brand-lockup {
+  min-width: 590px !important;
+  max-width: 640px !important;
+  padding: 14px 22px !important;
+  gap: 22px !important;
+  border-radius: 18px !important;
+}
+
+.brand-orb {
+  width: 86px !important;
+  height: 86px !important;
+  flex: 0 0 86px !important;
+}
+
+.brand-orb img {
+  width: 72px !important;
+  height: 72px !important;
+}
+
+.brand-title-wrap {
+  gap: 8px !important;
+  margin-left: 6px !important;
+}
+
+.brand-title-img {
+  height: 56px !important;
+  width: auto !important;
+  max-width: min(722px, 42vw) !important;
+}
+
+.brand-subline {
+  margin-top: 0 !important;
+  white-space: nowrap !important;
+}
+
+.header-intel {
+  margin-left: auto !important;
+  gap: 12px !important;
+  align-items: center !important;
+}
+
+.clock-card,
+.inspire-card {
+  min-height: 86px !important;
+  padding: 12px 16px !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(231,184,77,0.42) !important;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.065), rgba(255,255,255,0.020)),
+    rgba(10,14,17,0.70) !important;
+  box-shadow:
+    0 0 0 1px rgba(231,184,77,0.06),
+    0 14px 28px rgba(0,0,0,0.36),
+    inset 0 1px 0 rgba(255,255,255,0.08) !important;
+}
+
+.balance-stage {
+  align-items: center !important;
+  gap: 18px !important;
+}
+
+.balance-gauge {
+  width: 166px !important;
+  height: 166px !important;
+  min-width: 166px !important;
+  min-height: 166px !important;
+  flex: 0 0 166px !important;
+}
+
+.balance-gauge .score,
+.balance-gauge .value,
+.balance-gauge .count,
+.balance-gauge strong:first-child {
+  font-size: 2.2rem !important;
+  line-height: 1 !important;
+}
+
+.balance-gauge .label,
+.balance-gauge .caption,
+.balance-gauge small,
+.balance-gauge span:last-child {
+  font-size: 0.94rem !important;
+  line-height: 1.05 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+}
+
+.balance-gauge * {
+  text-align: center !important;
+}
+
+.mini-card {
+  position: relative !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(231,184,77,0.30) !important;
+  border-radius: 18px !important;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.055), rgba(255,255,255,0.015)),
+    rgba(7,11,14,0.78) !important;
+  box-shadow:
+    0 16px 38px rgba(0,0,0,0.40),
+    inset 0 1px 0 rgba(255,255,255,0.06) !important;
+}
+
+.mini-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.07), transparent 30%),
+    radial-gradient(circle at 100% 0%, rgba(231,184,77,0.08), transparent 28%);
+}
+
+.mini-card strong,
+.mini-card h3,
+.mini-card .title {
+  color: #f0c86a !important;
+}
+
+.day-card {
+  position: relative !important;
+  overflow: hidden !important;
+  padding-right: 70px !important;
+  border: 1px solid rgba(231,184,77,0.24) !important;
+  border-radius: 16px !important;
+}
+
+.day-card::after {
+  right: 16px !important;
+  left: auto !important;
+  top: 14px !important;
+  color: rgba(231,184,77,0.68) !important;
+  font-size: 1.12rem !important;
+}
+
+.day-card svg,
+.day-card i,
+.day-card [class*="icon"],
+.day-card [class*="glyph"] {
+  position: absolute !important;
+  right: 16px !important;
+  left: auto !important;
+  top: 14px !important;
+  width: 18px !important;
+  height: 18px !important;
+  color: #e7b84d !important;
+  fill: #e7b84d !important;
+  stroke: #e7b84d !important;
+  opacity: 0.62 !important;
+}
+
+.day-card .day,
+.day-card .dow,
+.day-card strong,
+.day-card span {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.chip,
+.domain-chip,
+.tag-chip,
+button[data-domain-chip],
+span[data-vd-domain-chip="true"] {
+  border-color: rgba(231,184,77,0.30) !important;
+  box-shadow:
+    0 10px 22px rgba(0,0,0,0.28),
+    inset 0 1px 0 rgba(255,255,255,0.08) !important;
+}
+
+@media (max-width: 1180px) {
+  .brand-lockup {
+    min-width: 520px !important;
+    max-width: 560px !important;
+  }
+
+  .brand-title-img {
+    height: 50px !important;
+  }
+}
+
+@media (max-width: 950px) {
+  .vd-shell {
+    grid-template-columns: 1fr !important;
+    padding: 16px !important;
+  }
+
+  .left-dock {
+    width: 100% !important;
+    min-width: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+
+  .brand-lockup {
+    min-width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .left-dock {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .brand-orb {
+    width: 70px !important;
+    height: 70px !important;
+    flex-basis: 70px !important;
+  }
+
+  .brand-orb img {
+    width: 58px !important;
+    height: 58px !important;
+  }
+
+  .brand-title-img {
+    height: 44px !important;
+    max-width: min(722px, 76vw) !important;
+  }
+}
+
+/* === VISIONDECK_LAYOUT_GLASS_ALIGNMENT_R1F_END === */
+
+
+/* === VISIONDECK_DOCK_DRILLDOWN_R1G_START === */
+
+/* Left rail becomes a real command dock, not a skinny nav strip. */
+.vd-shell {
+  grid-template-columns: 204px minmax(0, 1fr) !important;
+  gap: 20px !important;
+}
+
+.left-dock {
+  width: 204px !important;
+  min-width: 204px !important;
+  padding: 16px !important;
+  gap: 12px !important;
+  border-radius: 26px !important;
+  border: 1px solid rgba(231,184,77,0.30) !important;
+  background:
+    linear-gradient(180deg, rgba(9,17,22,0.96), rgba(4,8,12,0.90)),
+    radial-gradient(circle at 40% 0%, rgba(231,184,77,0.10), transparent 38%) !important;
+  box-shadow:
+    0 34px 84px rgba(0,0,0,0.62),
+    0 0 0 1px rgba(231,184,77,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.08) !important;
+}
+
+.left-dock::before {
+  content: "DRILLDOWN";
+  display: block;
+  color: rgba(231,184,77,0.88);
+  letter-spacing: 0.24em;
+  font-weight: 950;
+  font-size: 0.66rem;
+  margin: 2px 4px 6px;
+}
+
+.dock-tab {
+  min-height: 74px !important;
+  display: grid !important;
+  grid-template-columns: 38px minmax(0,1fr) !important;
+  align-items: center !important;
+  column-gap: 12px !important;
+  padding: 12px 13px !important;
+  border-radius: 18px !important;
+  position: relative !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(231,184,77,0.22) !important;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02)),
+    rgba(6,10,14,0.74) !important;
+  box-shadow:
+    0 16px 32px rgba(0,0,0,0.36),
+    inset 0 1px 0 rgba(255,255,255,0.08) !important;
+}
+
+.dock-tab::before {
+  width: 34px !important;
+  height: 34px !important;
+  border-radius: 12px !important;
+  display: grid !important;
+  place-items: center !important;
+  color: #f2c75f !important;
+  border: 1px solid rgba(231,184,77,0.42) !important;
+  background:
+    radial-gradient(circle at 45% 35%, rgba(231,184,77,0.20), rgba(231,184,77,0.04) 46%, rgba(0,0,0,0.20) 100%) !important;
+  box-shadow:
+    0 0 18px rgba(231,184,77,0.16),
+    inset 0 1px 0 rgba(255,255,255,0.10) !important;
+}
+
+.dock-tab strong {
+  font-size: 1.02rem !important;
+  line-height: 1.08 !important;
+  white-space: nowrap !important;
+}
+
+.dock-tab span {
+  font-size: 0.72rem !important;
+  letter-spacing: 0.16em !important;
+  white-space: nowrap !important;
+}
+
+.dock-tab.active,
+.dock-tab[data-drawer-active="true"] {
+  border-color: rgba(92,179,255,0.62) !important;
+  box-shadow:
+    0 0 0 1px rgba(92,179,255,0.28),
+    0 0 34px rgba(92,179,255,0.22),
+    0 22px 46px rgba(0,0,0,0.52),
+    inset 0 1px 0 rgba(255,255,255,0.10) !important;
+}
+
+.dock-tab[data-drawer-active="true"]::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: 16%;
+  width: 3px;
+  height: 68%;
+  border-radius: 999px;
+  background: linear-gradient(#8bd0ff, #e7b84d);
+  box-shadow: 0 0 18px rgba(92,179,255,0.65);
+}
+
+/* Focus mode: main remains visible, but secondary drilldown owns attention. */
+body.vd-drawer-open .vd-main {
+  filter: blur(5px) saturate(0.72) brightness(0.68) !important;
+  transform: scale(0.992) !important;
+  pointer-events: none !important;
+  transition: filter 180ms ease, transform 180ms ease !important;
+}
+
+body.vd-drawer-open .vd-main::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.18);
+  pointer-events: none;
+  z-index: 40;
+}
+
+.dock-drawer {
+  position: fixed;
+  z-index: 120;
+  left: 244px;
+  top: 176px;
+  width: min(940px, calc(100vw - 286px));
+  max-width: 940px;
+  height: calc(100vh - 212px);
+  min-height: 430px;
+  border-radius: 28px;
+  border: 1px solid rgba(231,184,77,0.38);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(92,179,255,0.10), transparent 34%),
+    radial-gradient(circle at 100% 10%, rgba(231,184,77,0.12), transparent 32%),
+    linear-gradient(145deg, rgba(12,20,26,0.94), rgba(5,9,13,0.91));
+  box-shadow:
+    0 44px 120px rgba(0,0,0,0.74),
+    0 0 0 1px rgba(231,184,77,0.08),
+    0 0 60px rgba(92,179,255,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  transform: translateX(-22px) scale(0.982);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 180ms ease;
+  overflow: hidden;
+}
+
+.dock-drawer[data-open="true"] {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0) scale(1);
+}
+
+.dock-drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(231,184,77,0.18);
+  background:
+    linear-gradient(90deg, rgba(231,184,77,0.06), transparent 42%),
+    rgba(255,255,255,0.018);
+}
+
+.dock-drawer__kicker {
+  display: block;
+  color: #e7b84d;
+  font-size: 0.70rem;
+  font-weight: 950;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+.dock-drawer__title {
+  margin: 4px 0 0;
+  color: #f4f0df;
+  font-size: clamp(1.4rem, 2vw, 2.1rem);
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+}
+
+.dock-drawer__sub {
+  color: rgba(223,229,232,0.66);
+  font-size: 0.95rem;
+  margin-top: 6px;
+}
+
+.dock-drawer__close {
+  appearance: none;
+  border: 1px solid rgba(231,184,77,0.34);
+  color: #ffe49c;
+  background: rgba(255,255,255,0.035);
+  border-radius: 14px;
+  padding: 10px 14px;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.36), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.dock-drawer__body {
+  height: calc(100% - 96px);
+  overflow: auto;
+  padding: 18px;
+}
+
+.dock-drawer__body > .panel,
+.dock-drawer__body > .split-row,
+.dock-drawer__body > .placeholder-grid,
+.dock-drawer__body > .operator-feed {
+  margin: 0 0 16px !important;
+}
+
+.dock-drawer__body .panel,
+.dock-drawer__body .split-row > *,
+.dock-drawer__body .placeholder-grid > *,
+.dock-drawer__empty {
+  border-color: rgba(231,184,77,0.30) !important;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.055), rgba(255,255,255,0.016)),
+    rgba(4,8,12,0.72) !important;
+  box-shadow:
+    0 18px 48px rgba(0,0,0,0.46),
+    inset 0 1px 0 rgba(255,255,255,0.07) !important;
+}
+
+.dock-drawer__empty {
+  border: 1px solid rgba(231,184,77,0.26);
+  border-radius: 22px;
+  padding: 22px;
+  color: rgba(223,229,232,0.70);
+}
+
+.vd-drilldown-home {
+  display: grid;
+  gap: 14px;
+}
+
+.vd-drilldown-card {
+  border: 1px solid rgba(231,184,77,0.24);
+  border-radius: 18px;
+  padding: 18px;
+  background: rgba(255,255,255,0.025);
+}
+
+.vd-drilldown-card strong {
+  color: #f0c86a;
+  display: block;
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+}
+
+.vd-drilldown-card p {
+  margin: 0;
+  color: rgba(223,229,232,0.70);
+}
+
+@media (max-width: 1100px) {
+  .vd-shell {
+    grid-template-columns: 176px minmax(0, 1fr) !important;
+  }
+
+  .left-dock {
+    width: 176px !important;
+    min-width: 176px !important;
+  }
+
+  .dock-drawer {
+    left: 210px;
+    width: calc(100vw - 232px);
+  }
+}
+
+@media (max-width: 760px) {
+  body.vd-drawer-open .vd-main {
+    filter: blur(4px) brightness(0.64) !important;
+  }
+
+  .dock-drawer {
+    left: 14px;
+    right: 14px;
+    top: 142px;
+    width: auto;
+    height: calc(100vh - 172px);
+  }
+}
+
+/* === VISIONDECK_DOCK_DRILLDOWN_R1G_END === */
+
+
+/* === VISIONDECK_VISUAL_CORRECTION_R1H_START === */
+
+/* Accessibility utility for removed visual headline. */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* -------------------------------------------------------
+   GRID / DOCK WIDTH — stop rail clipping.
+------------------------------------------------------- */
+.vd-shell {
+  grid-template-columns: 184px minmax(0, 1fr) !important;
+  gap: 24px !important;
+  padding-left: 20px !important;
+  padding-right: 22px !important;
+}
+
+.left-dock {
+  width: 184px !important;
+  min-width: 184px !important;
+  max-width: 184px !important;
+  padding: 16px !important;
+  overflow: visible !important;
+  gap: 12px !important;
+}
+
+.left-dock::before {
+  content: "DRILLDOWN" !important;
+  display: block !important;
+  color: rgba(231,184,77,0.92) !important;
+  letter-spacing: 0.23em !important;
+  font-weight: 950 !important;
+  font-size: 0.65rem !important;
+  margin: 0 3px 6px !important;
+}
+
+.dock-tab {
+  min-width: 0 !important;
+  width: 100% !important;
+  min-height: 72px !important;
+  grid-template-columns: 38px minmax(86px, 1fr) !important;
+  padding: 12px 12px !important;
+  overflow: visible !important;
+}
+
+.dock-tab strong,
+.dock-tab span {
+  overflow: visible !important;
+  text-overflow: clip !important;
+}
+
+.dock-tab strong {
+  font-size: 1.0rem !important;
+  letter-spacing: 0.02em !important;
+  white-space: nowrap !important;
+}
+
+.dock-tab span {
+  font-size: 0.70rem !important;
+  letter-spacing: 0.15em !important;
+  white-space: nowrap !important;
+}
+
+/* -------------------------------------------------------
+   MASTHEAD — title owns the left space. No tagline.
+------------------------------------------------------- */
+.vd-masthead {
+  min-height: 138px !important;
+  padding: 18px 22px !important;
+  align-items: center !important;
+}
+
+.brand-lockup {
+  flex: 1 1 auto !important;
+  min-width: min(820px, 50vw) !important;
+  max-width: none !important;
+  padding: 18px 30px !important;
+  gap: 26px !important;
+  border: 1px solid rgba(231,184,77,0.46) !important;
+  border-radius: 18px !important;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.055), rgba(255,255,255,0.012)),
+    radial-gradient(circle at 8% 35%, rgba(231,184,77,0.10), transparent 28%),
+    rgba(4,8,12,0.62) !important;
+  box-shadow:
+    0 24px 58px rgba(0,0,0,0.54),
+    0 0 0 1px rgba(231,184,77,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.08) !important;
+}
+
+.brand-orb {
+  width: 92px !important;
+  height: 92px !important;
+  border-radius: 22px !important;
+  flex: 0 0 92px !important;
+}
+
+.brand-orb img {
+  width: 88px !important;
+  height: 88px !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 18px 24px rgba(0,0,0,0.46)) !important;
+}
+
+.brand-title-wrap {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  margin-left: 2px !important;
+}
+
+.brand-title-img {
+  width: min(720px, 42vw) !important;
+  max-width: none !important;
+  min-width: min(520px, 38vw) !important;
+  height: auto !important;
+  display: block !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+  filter:
+    drop-shadow(0 18px 32px rgba(0,0,0,0.60))
+    drop-shadow(0 0 16px rgba(231,184,77,0.12)) !important;
+}
+
+.brand-subline {
+  display: none !important;
+}
+
+/* -------------------------------------------------------
+   HEADER INTEL — quote/date cards should feel native.
+------------------------------------------------------- */
+.header-intel {
+  flex: 0 0 auto !important;
+  min-width: 620px !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.clock-card,
+.inspire-card {
+  height: 78px !important;
+  min-height: 78px !important;
+  border-radius: 18px !important;
+  padding: 12px 16px !important;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.060), rgba(255,255,255,0.018)),
+    rgba(4,8,12,0.62) !important;
+  border: 1px solid rgba(231,184,77,0.38) !important;
+  box-shadow:
+    0 16px 38px rgba(0,0,0,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.08) !important;
+}
+
+.clock-card {
+  width: 190px !important;
+  min-width: 190px !important;
+}
+
+.inspire-card {
+  width: 286px !important;
+  min-width: 286px !important;
+  max-width: 286px !important;
+}
+
+.inspire-card .micro {
+  letter-spacing: 0.26em !important;
+}
+
+#inspireText {
+  display: block !important;
+  max-height: 2.75em !important;
+  overflow: hidden !important;
+  line-height: 1.35 !important;
+}
+
+/* -------------------------------------------------------
+   MAIN OVERVIEW — remove redundant title, fix balance gauge.
+------------------------------------------------------- */
+.hero-panel .panel-head h1 {
+  display: none !important;
+}
+
+.hero-panel .panel-head {
+  margin-bottom: 14px !important;
+  align-items: center !important;
+}
+
+.balance-stage {
+  min-height: 184px !important;
+  align-items: center !important;
+  gap: 34px !important;
+  padding: 22px 28px !important;
+  overflow: visible !important;
+  border-color: rgba(231,184,77,0.36) !important;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.050), rgba(255,255,255,0.012)),
+    radial-gradient(circle at 11% 44%, rgba(231,184,77,0.12), transparent 24%),
+    rgba(2,6,9,0.62) !important;
+  box-shadow:
+    0 22px 54px rgba(0,0,0,0.50),
+    inset 0 1px 0 rgba(255,255,255,0.08) !important;
+}
+
+.balance-gauge {
+  width: 186px !important;
+  height: 186px !important;
+  flex: 0 0 186px !important;
+  overflow: visible !important;
+}
+
+.balance-gauge::before {
+  inset: 27px !important;
+}
+
+.balance-gauge span {
+  font-size: 2.85rem !important;
+  line-height: 1 !important;
+  position: relative !important;
+  top: -12px !important;
+}
+
+.balance-gauge small {
+  bottom: 51px !important;
+  font-size: 0.78rem !important;
+  letter-spacing: 0.18em !important;
+  color: rgba(226,232,232,0.78) !important;
+  white-space: nowrap !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+/* -------------------------------------------------------
+   Priority cards + calendar cards: more gold trim, more glass.
+------------------------------------------------------- */
+.priority-grid .mini-card,
+.mini-card {
+  border-color: rgba(231,184,77,0.40) !important;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.060), rgba(255,255,255,0.014)),
+    rgba(4,8,12,0.62) !important;
+  box-shadow:
+    0 20px 48px rgba(0,0,0,0.46),
+    inset 0 1px 0 rgba(255,255,255,0.08) !important;
+}
+
+.week-strip {
+  align-items: stretch !important;
+  overflow: visible !important;
+}
+
+.day-card {
+  min-height: 118px !important;
+  padding: 18px 18px !important;
+  border-color: rgba(231,184,77,0.34) !important;
+}
+
+.day-card::before {
+  color: rgba(231,184,77,0.88) !important;
+  filter: drop-shadow(0 0 8px rgba(231,184,77,0.22)) !important;
+}
+
+/* -------------------------------------------------------
+   Dock reservoir: lower utility areas stay available for drawer,
+   but leave the main surface.
+------------------------------------------------------- */
+.vd-main > .split-row,
+.vd-main > .placeholder-grid,
+.vd-main > .operator-feed {
+  position: absolute !important;
+  left: -200vw !important;
+  top: auto !important;
+  width: 1px !important;
+  height: 1px !important;
+  max-width: 1px !important;
+  max-height: 1px !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Once cloned into the drawer, restore full rendering. */
+.dock-drawer .split-row,
+.dock-drawer .placeholder-grid,
+.dock-drawer .operator-feed,
+.dock-drawer .panel {
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  overflow: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.dock-drawer {
+  left: 226px !important;
+  top: 168px !important;
+  width: min(980px, calc(100vw - 260px)) !important;
+}
+
+@media (max-width: 1220px) {
+  .vd-shell {
+    grid-template-columns: 164px minmax(0, 1fr) !important;
+    gap: 18px !important;
+  }
+
+  .left-dock {
+    width: 164px !important;
+    min-width: 164px !important;
+    max-width: 164px !important;
+  }
+
+  .brand-lockup {
+    min-width: min(650px, 50vw) !important;
+  }
+
+  .brand-title-img {
+    width: min(600px, 42vw) !important;
+    min-width: min(430px, 38vw) !important;
+  }
+
+  .header-intel {
+    min-width: 520px !important;
+  }
+
+  .inspire-card {
+    width: 240px !important;
+    min-width: 240px !important;
+    max-width: 240px !important;
+  }
+}
+
+@media (max-width: 950px) {
+  .vd-shell {
+    grid-template-columns: 1fr !important;
+  }
+
+  .left-dock {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+  }
+
+  .brand-lockup {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  .brand-title-img {
+    width: min(620px, 72vw) !important;
+    min-width: 0 !important;
+  }
+
+  .header-intel {
+    min-width: 0 !important;
+    width: 100% !important;
+    justify-content: flex-start !important;
+  }
+
+  .balance-gauge {
+    width: 154px !important;
+    height: 154px !important;
+    flex-basis: 154px !important;
+  }
+
+  .dock-drawer {
+    left: 14px !important;
+    right: 14px !important;
+    width: auto !important;
+  }
+}
+
+/* === VISIONDECK_VISUAL_CORRECTION_R1H_END === */
+
+/* === VISIONDECK_HEADER_DOCK_CLIP_FIX_R1N_START === */
+
+/* Shell must reserve enough room for the dock.
+   Previous grid was too tight and clipped the rail. */
+.vd-shell {
+  grid-template-columns: 174px minmax(0, 1fr) !important;
+  column-gap: 20px !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  overflow-x: hidden !important;
+}
+
+/* Header must breathe vertically. No clipping. */
+.vd-masthead {
+  min-height: 154px !important;
+  height: auto !important;
+  overflow: visible !important;
+  align-items: center !important;
+  padding: 22px 28px !important;
+  gap: 28px !important;
+}
+
+/* Brand box: bigger logo/title presence without swallowing the header. */
+.brand-lockup {
+  min-width: 560px !important;
+  max-width: 680px !important;
+  min-height: 104px !important;
+  padding: 18px 28px !important;
+  overflow: visible !important;
+}
+
+.brand-orb img {
+  width: 78px !important;
+  height: 78px !important;
+  min-width: 78px !important;
+  min-height: 78px !important;
+}
+
+.brand-title-wrap {
+  min-width: 390px !important;
+  overflow: visible !important;
+}
+
+.brand-title-img {
+  height: 48px !important;
+  width: auto !important;
+  max-width: 430px !important;
+  object-fit: contain !important;
+}
+
+/* Hide the old subline from the working surface. */
+.brand-subline {
+  display: none !important;
+}
+
+/* Header intel cards: stop vertical text clipping. */
+.header-intel {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 12px !important;
+  min-height: 96px !important;
+  overflow: visible !important;
+  flex: 1 1 auto !important;
+}
+
+.clock-card,
+.inspire-card {
+  height: auto !important;
+  min-height: 78px !important;
+  overflow: visible !important;
+  padding: 14px 18px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  border-color: rgba(218, 168, 55, 0.54) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    0 18px 36px rgba(0,0,0,0.35),
+    0 0 20px rgba(218,168,55,0.10) !important;
+}
+
+.clock-card {
+  min-width: 150px !important;
+}
+
+.inspire-card {
+  min-width: 330px !important;
+  max-width: 420px !important;
+}
+
+.inspire-card .micro,
+.clock-card .micro {
+  font-size: 0.70rem !important;
+  letter-spacing: 0.34em !important;
+  line-height: 1.1 !important;
+}
+
+.inspire-card strong {
+  font-size: 0.92rem !important;
+  line-height: 1.25 !important;
+  font-weight: 750 !important;
+  white-space: normal !important;
+  overflow: visible !important;
+}
+
+.clock-card strong,
+.clock-card span {
+  line-height: 1.25 !important;
+  overflow: visible !important;
+}
+
+/* Status pills should align with the cards, not crowd them. */
+.status-row {
+  flex: 0 0 auto !important;
+  display: flex !important;
+  gap: 10px !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+}
+
+/* Left drilldown dock: wider, no crop. */
+.left-dock {
+  width: 144px !important;
+  min-width: 144px !important;
+  max-width: 144px !important;
+  padding: 14px 12px !important;
+  overflow: visible !important;
+  border-color: rgba(218,168,55,0.38) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    0 0 0 1px rgba(42,141,255,0.14),
+    0 18px 42px rgba(0,0,0,0.42),
+    0 0 28px rgba(42,141,255,0.18) !important;
+}
+
+.dock-tab {
+  width: 118px !important;
+  min-width: 118px !important;
+  min-height: 66px !important;
+  padding: 10px 12px !important;
+  overflow: visible !important;
+  text-align: left !important;
+}
+
+.dock-tab strong {
+  font-size: 1.02rem !important;
+  line-height: 1.05 !important;
+}
+
+.dock-tab span {
+  font-size: 0.73rem !important;
+  letter-spacing: 0.16em !important;
+  line-height: 1.1 !important;
+}
+
+/* Main area should start after the expanded dock, not under it. */
+.vd-main {
+  min-width: 0 !important;
+  overflow: visible !important;
+}
+
+/* Balance gauge stage: prevent the word BALANCE from collapsing. */
+.balance-stage {
+  min-height: 188px !important;
+  overflow: visible !important;
+  align-items: center !important;
+  gap: 30px !important;
+  padding: 26px 30px !important;
+}
+
+.balance-stage > *:first-child {
+  min-width: 158px !important;
+  width: 158px !important;
+  min-height: 158px !important;
+  height: 158px !important;
+  flex: 0 0 158px !important;
+  overflow: visible !important;
+}
+
+/* If the gauge has its own class, force it cleanly too. */
+.balance-gauge,
+.gauge,
+.gauge-ring,
+.balance-ring,
+.score-ring {
+  min-width: 150px !important;
+  min-height: 150px !important;
+  width: 150px !important;
+  height: 150px !important;
+  overflow: visible !important;
+}
+
+/* Gold-trim the three focus cards. */
+.hero-card,
+.summary-card,
+.focus-card,
+.panel-card,
+[data-card="today"],
+[data-card="end-of-week"],
+[data-card="within-two-weeks"] {
+  border-color: rgba(218,168,55,0.42) !important;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.045), rgba(255,255,255,0.012)),
+    rgba(5, 11, 13, 0.62) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.055),
+    0 22px 42px rgba(0,0,0,0.38),
+    0 0 22px rgba(218,168,55,0.08) !important;
+}
+
+/* The calendar row icons should stay gold and stop colliding with day labels. */
+.week-card,
+.day-card,
+.calendar-card {
+  position: relative !important;
+  overflow: hidden !important;
+  padding-top: 28px !important;
+}
+
+.week-card svg,
+.day-card svg,
+.calendar-card svg,
+.week-card .icon,
+.day-card .icon,
+.calendar-card .icon {
+  color: #d8aa3d !important;
+  fill: #d8aa3d !important;
+  stroke: #d8aa3d !important;
+  opacity: 0.72 !important;
+  top: 14px !important;
+  right: 14px !important;
+}
+
+/* Keep lower drilldown content from reappearing on the main surface if R1M docking is active. */
+.vd-main > .proof-panel,
+.vd-main > .terminal-panel,
+.vd-main > .operator-feed,
+.vd-main > .meridian-panel,
+.vd-main > .oha-panel {
+  display: none !important;
+}
+
+/* === VISIONDECK_HEADER_DOCK_CLIP_FIX_R1N_END === */
+
+/* === VISIONDECK_DOCK_GAUGE_CONTAINMENT_R1O_START === */
+
+/* Give the rail real estate. Previous rail still clipped labels. */
+.vd-shell {
+  grid-template-columns: 210px minmax(0, 1fr) !important;
+  column-gap: 22px !important;
+  padding-left: 24px !important;
+}
+
+/* Dock frame becomes a real drilldown rail, not a skinny tab stack. */
+.left-dock {
+  position: relative !important;
+  width: 178px !important;
+  min-width: 178px !important;
+  max-width: 178px !important;
+  padding: 42px 14px 16px 14px !important;
+  overflow: visible !important;
+  box-sizing: border-box !important;
+}
+
+/* Fix clipped DRILLDOWN label. */
+.left-dock::before {
+  content: "DRILLDOWN" !important;
+  position: absolute !important;
+  top: 14px !important;
+  left: 18px !important;
+  right: 18px !important;
+  height: 16px !important;
+  line-height: 16px !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+  color: #d8aa3d !important;
+  font-size: 0.70rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.22em !important;
+  text-shadow: 0 0 12px rgba(216,170,61,0.32) !important;
+  opacity: 0.95 !important;
+}
+
+/* Dock buttons: wider, stronger, no text crop. */
+.dock-tab {
+  width: 150px !important;
+  min-width: 150px !important;
+  max-width: 150px !important;
+  min-height: 66px !important;
+  padding: 10px 12px !important;
+  display: grid !important;
+  grid-template-columns: 28px minmax(0, 1fr) !important;
+  grid-template-rows: auto auto !important;
+  column-gap: 8px !important;
+  align-items: center !important;
+  overflow: visible !important;
+  box-sizing: border-box !important;
+}
+
+.dock-tab::before,
+.dock-tab .dock-icon,
+.dock-tab svg {
+  color: #d8aa3d !important;
+  fill: #d8aa3d !important;
+  stroke: #d8aa3d !important;
+}
+
+.dock-tab strong {
+  grid-column: 2 !important;
+  font-size: 1.00rem !important;
+  line-height: 1.08 !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+}
+
+.dock-tab span {
+  grid-column: 2 !important;
+  font-size: 0.70rem !important;
+  letter-spacing: 0.16em !important;
+  line-height: 1.08 !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+}
+
+/* Header quote/date cards should not look squeezed or cut. */
+.header-intel {
+  min-width: 860px !important;
+  gap: 14px !important;
+  overflow: visible !important;
+}
+
+.clock-card {
+  min-width: 180px !important;
+  max-width: 190px !important;
+}
+
+.inspire-card {
+  min-width: 430px !important;
+  max-width: 520px !important;
+}
+
+.inspire-card strong {
+  font-size: 0.84rem !important;
+  line-height: 1.18 !important;
+  max-height: none !important;
+}
+
+/* Balance stage: make the gauge a deliberate visual object. */
+.balance-stage {
+  min-height: 205px !important;
+  padding: 30px 34px !important;
+  gap: 36px !important;
+  overflow: visible !important;
+}
+
+.balance-stage > *:first-child {
+  width: 176px !important;
+  height: 176px !important;
+  min-width: 176px !important;
+  min-height: 176px !important;
+  flex: 0 0 176px !important;
+  overflow: visible !important;
+}
+
+/* Catch common gauge class names without touching endpoint/data logic. */
+.balance-gauge,
+.gauge,
+.gauge-ring,
+.balance-ring,
+.score-ring,
+.balance-score {
+  width: 168px !important;
+  height: 168px !important;
+  min-width: 168px !important;
+  min-height: 168px !important;
+  overflow: visible !important;
+}
+
+/* Keep BALANCE text readable inside the score. */
+.balance-gauge *,
+.gauge *,
+.gauge-ring *,
+.balance-ring *,
+.score-ring *,
+.balance-score * {
+  overflow: visible !important;
+}
+
+/* Calendar cards: icons gold and non-overlapping. */
+.week-card,
+.day-card,
+.calendar-card {
+  position: relative !important;
+  padding-top: 34px !important;
+  overflow: hidden !important;
+}
+
+.week-card svg,
+.day-card svg,
+.calendar-card svg,
+.week-card .icon,
+.day-card .icon,
+.calendar-card .icon {
+  color: #d8aa3d !important;
+  fill: #d8aa3d !important;
+  stroke: #d8aa3d !important;
+  opacity: 0.72 !important;
+  top: 16px !important;
+  right: 16px !important;
+}
+
+/* Maintain clean main surface: intake/drilldown content belongs in dock drawer. */
+.vd-main > .manual-panel,
+.vd-main > .manual-entry-panel,
+.vd-main > .proof-panel,
+.vd-main > .terminal-panel,
+.vd-main > .operator-feed,
+.vd-main > .meridian-panel,
+.vd-main > .oha-panel {
+  display: none !important;
+}
+
+/* === VISIONDECK_DOCK_GAUGE_CONTAINMENT_R1O_END === */
+
+/* === VISIONDECK_FINAL_DOCK_WIDTH_LOCK_R1P_START === */
+
+/* Final dock width lock:
+   wider rail, stronger tiles, no clipped words, premium command feel. */
+.vd-shell {
+  grid-template-columns: 250px minmax(0, 1fr) !important;
+  column-gap: 24px !important;
+  padding-left: 28px !important;
+}
+
+/* Left rail becomes a proper drilldown spine. */
+.left-dock {
+  width: 218px !important;
+  min-width: 218px !important;
+  max-width: 218px !important;
+  padding: 46px 16px 18px 16px !important;
+  border-radius: 22px !important;
+  overflow: visible !important;
+  box-sizing: border-box !important;
+}
+
+/* Keep DRILLDOWN fully inside the rail. */
+.left-dock::before {
+  content: "DRILLDOWN" !important;
+  position: absolute !important;
+  top: 16px !important;
+  left: 18px !important;
+  right: 18px !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+  color: #d8aa3d !important;
+  font-size: 0.72rem !important;
+  font-weight: 850 !important;
+  letter-spacing: 0.28em !important;
+  line-height: 1 !important;
+  text-shadow: 0 0 14px rgba(216,170,61,0.34) !important;
+}
+
+/* Dock tiles: final width and spacing. */
+.dock-tab {
+  width: 186px !important;
+  min-width: 186px !important;
+  max-width: 186px !important;
+  min-height: 70px !important;
+  padding: 11px 14px !important;
+  border-radius: 14px !important;
+  display: grid !important;
+  grid-template-columns: 32px minmax(0, 1fr) !important;
+  grid-template-rows: auto auto !important;
+  column-gap: 10px !important;
+  align-items: center !important;
+  overflow: visible !important;
+  box-sizing: border-box !important;
+}
+
+/* Stronger tile glass/depth. */
+.dock-tab {
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.055), rgba(255,255,255,0.012)),
+    rgba(5, 12, 15, 0.74) !important;
+  border: 1px solid rgba(218,168,55,0.28) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.055),
+    0 10px 24px rgba(0,0,0,0.34),
+    0 0 16px rgba(218,168,55,0.06) !important;
+}
+
+.dock-tab.active {
+  border-color: rgba(55,155,255,0.82) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    0 0 0 1px rgba(55,155,255,0.38),
+    0 14px 34px rgba(0,0,0,0.44),
+    0 0 28px rgba(55,155,255,0.30) !important;
+}
+
+/* Prevent all dock label clipping. */
+.dock-tab strong {
+  grid-column: 2 !important;
+  font-size: 1.04rem !important;
+  line-height: 1.08 !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+}
+
+.dock-tab span {
+  grid-column: 2 !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.18em !important;
+  line-height: 1.08 !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+}
+
+/* Dock icons stay gold. */
+.dock-tab::before,
+.dock-tab .dock-icon,
+.dock-tab svg,
+.dock-tab i {
+  color: #d8aa3d !important;
+  fill: #d8aa3d !important;
+  stroke: #d8aa3d !important;
+}
+
+/* Keep main surface aligned after wider dock. */
+.vd-main {
+  min-width: 0 !important;
+  overflow: visible !important;
+}
+
+/* Header cards final trim: quote has room but stays elegant. */
+.header-intel {
+  min-width: 900px !important;
+  gap: 14px !important;
+}
+
+.clock-card {
+  min-width: 178px !important;
+}
+
+.inspire-card {
+  min-width: 470px !important;
+  max-width: 560px !important;
+}
+
+.inspire-card strong {
+  font-size: 0.82rem !important;
+  line-height: 1.18 !important;
+  font-weight: 760 !important;
+}
+
+/* Balance gauge final readability. */
+.balance-stage > *:first-child {
+  width: 188px !important;
+  height: 188px !important;
+  min-width: 188px !important;
+  min-height: 188px !important;
+  flex: 0 0 188px !important;
+}
+
+.balance-gauge,
+.gauge,
+.gauge-ring,
+.balance-ring,
+.score-ring,
+.balance-score {
+  width: 176px !important;
+  height: 176px !important;
+  min-width: 176px !important;
+  min-height: 176px !important;
+}
+
+/* === VISIONDECK_FINAL_DOCK_WIDTH_LOCK_R1P_END === */

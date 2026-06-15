@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VisionDeck by Atrium Intelligence — BalanceMi</title>
+  <link rel="stylesheet" href="visiondeck.css" />
+</head>
+<body>
+  <div class="vd-shell">
+    <header class="vd-masthead glass depth-xl">
+      <section class="brand-lockup" aria-label="VisionDeck masthead">
+        <div class="brand-orb glass-toggle"><img src="assets/visiondeck_logo.png" alt="VisionDeck logo" /></div>
+        <div class="brand-title-wrap">
+          <img class="brand-title-img" src="assets/visiondeck_title.png" alt="VISIONDECK by Atrium Intelligence" />
+          <div class="brand-subline" aria-hidden="true"></div>
+        </div>
+      </section>
+      <section class="header-intel" aria-label="Header live context">
+        <div class="clock-card glass-toggle"><span class="micro">TODAY</span><strong id="dateText">--</strong><span id="clockText">--:--:--</span></div>
+        <div class="inspire-card glass-toggle"><span class="micro">QUOTE OF THE DAY</span><strong id="inspireText">Small controlled wins compound into freedom.</strong></div>
+        <div class="status-row"><span class="pill green">API: GREEN</span><span class="pill">ROUTE: REVIEW</span><span class="pill">READ_ONLY_COCKPIT</span></div>
+      </section>
+    </header>
+
+    <nav class="left-dock glass depth-lg" aria-label="VisionDeck dock">
+      <button class="dock-tab active" data-panel="today"><strong>Today</strong><span>NOW</span></button>
+      <button class="dock-tab" data-panel="week"><strong>Week</strong><span>LOAD</span></button>
+      <button class="dock-tab" data-panel="intake"><strong>Intake</strong><span>ADD</span></button>
+      <button class="dock-tab" data-panel="calendar"><strong>Calendar</strong><span>BLOCKS</span></button>
+      <button class="dock-tab" data-panel="terminal"><strong>Terminal</strong><span>READ</span></button>
+      <button class="dock-tab" data-panel="proof"><strong>Proof</strong><span>AUDIT</span></button>
+      <button class="dock-tab" data-panel="meridian"><strong>Meridian</strong><span>LATER</span></button>
+      <button class="dock-tab" data-panel="oha"><strong>OHA</strong><span>LATER</span></button>
+    </nav>
+
+    <main class="vd-main">
+      <section class="panel hero-panel glass depth-xl" data-section="today">
+        <div class="panel-head"><div><span class="eyebrow">BalanceMi Overview</span><h1 class="visually-hidden">BalanceMi Overview</h1></div><button class="btn ghost" id="refreshTodayBtn">Refresh Today</button></div>
+        <div class="balance-stage glass-inner">
+          <div class="balance-gauge" id="balanceGauge"><span id="balanceScore">--</span><small>BALANCE</small></div>
+          <div><h2>Current balance</h2><p id="balanceSummary">Awaiting live endpoint read. No guesses.</p><div id="domainChips" class="chip-row"></div></div>
+        </div>
+        <div class="priority-grid">
+          <article class="mini-card depth-md"><span>Today</span><strong id="todayFocus">HEALTH</strong><p>Hard commitments, medication, family/spouse, top load.</p></article>
+          <article class="mini-card depth-md"><span>End of Week</span><strong id="weekFocus">MAINT</strong><p>Due soon, commute pressure, maintenance, finance.</p></article>
+          <article class="mini-card depth-md"><span>Within 2 Weeks</span><strong id="twoWeekFocus">PETS</strong><p>Upcoming obligations before they become fires.</p></article>
+        </div>
+      </section>
+
+      <section class="panel glass depth-lg" data-section="calendar">
+        <div class="panel-head"><div><span class="eyebrow">Calendar / Activity Description</span><h2>Minimal calendar load view</h2></div><span class="pill">Office Governors: Tue / Thu</span></div>
+        <div class="week-strip" id="weekStrip">
+          <button class="day-card"><span>MON</span><strong>Open</strong><small>PLAN</small></button>
+          <button class="day-card hot"><span>TUE</span><strong>Office</strong><small>LOW CAPACITY</small></button>
+          <button class="day-card"><span>WED</span><strong>Build</strong><small>FOCUS</small></button>
+          <button class="day-card hot"><span>THU</span><strong>Office</strong><small>LOW CAPACITY</small></button>
+          <button class="day-card"><span>FRI</span><strong>Open</strong><small>RECOVER</small></button>
+          <button class="day-card"><span>SAT</span><strong>Family</strong><small>HOME</small></button>
+          <button class="day-card"><span>SUN</span><strong>Reset</strong><small>PREP</small></button>
+        </div>
+      </section>
+
+      <section class="panel glass depth-lg intake-panel" data-section="intake">
+        <div class="panel-head"><div><span class="eyebrow">Manual Entries / Corrections</span><h2>Manual Entries / Corrections</h2></div><span class="pill green">same endpoints</span></div>
+        <div class="form-grid">
+          <label>Task title<input id="taskTitle" value="massage" /></label>
+          <label>Due date<input id="dueDate" type="date" /></label>
+          <label class="wide">Description / notes<textarea id="taskNotes">Father's day massage for me</textarea></label>
+          <label>Estimated hours<input id="estHours" type="number" min="0" step="0.25" value="1" /></label>
+          <label>Base urgency<input id="baseUrgency" type="number" min="0" max="1" step="0.1" value="1" /></label>
+          <label>Domain override<select id="domainOverride"><option value="">AUTO</option><option>PERSONAL_CARE</option><option>SPOUSE</option><option>FAMILY</option><option>MEDICATION_HEALTH</option><option>MAINTENANCE</option><option>PET_CARE</option><option>FINANCE</option><option>HEOS</option><option>CAREER_DEV</option><option>BUSINESS</option><option>GOD</option></select></label>
+          <label class="wide">Tags<input id="taskTags" value="FAMILY, FATHERS_DAY, MEDICATION, MAINTENANCE" /></label>
+        </div>
+        <div class="button-row"><button class="btn" id="categorizeBtn">Categorize</button><button class="btn gold" id="submitTaskBtn">Submit Task</button><button class="btn ghost" id="clearBtn">Clear</button><button class="btn ghost" id="previewBriefBtn">Preview Brief</button><button class="btn ghost" id="stageBriefBtn">Stage Brief</button><button class="btn ghost" id="refreshRelayBtn">Refresh Relay</button></div>
+      </section>
+
+      <section class="split-row">
+        <article class="panel glass depth-lg proof-panel" data-section="proof"><div class="panel-head"><div><span class="eyebrow">Proof Drawer</span><h2>Last action</h2></div><button class="btn ghost" id="copyProofBtn">Copy</button></div><pre id="proofBox">{}</pre></article>
+        <article class="panel glass depth-lg terminal-panel" data-section="terminal"><div class="panel-head"><div><span class="eyebrow">Command Terminal</span><h2>CRT read-only cockpit</h2></div><span class="pill green">GREEN CRT</span></div><div class="crt-screen" id="terminalLog"></div></article>
+      </section>
+
+      <section class="placeholder-grid">
+        <article class="panel glass depth-md" data-section="meridian"><span class="eyebrow">Meridian Learning API</span><h2>Learning platform placeholder</h2><p>Attached later after release gate. No fake endpoint calls.</p></article>
+        <article class="panel glass depth-md" data-section="oha"><span class="eyebrow">OHA — OpenSky HALO Academy</span><h2>Model integration placeholder</h2><p>LFM suite and academy intelligence attach after GitHub release path is clean.</p></article>
+        <article class="panel glass depth-md operator-feed"><span class="eyebrow">Operator Feed</span><h2 id="feedMessage">Small controlled wins compound into freedom.</h2><ul><li>cyber_hand <b>standby</b></li><li>cyber_mount <b>standby</b></li><li>kmnd-c7 <b>standby</b></li><li>Weather <b>placeholder</b></li></ul></article>
+      </section>
+    </main>
+  </div>
+  <script src="visiondeck.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "schema": "BALANCEMI_PAYLOAD_CONTRACT.public.v1",
+  "product": "VisionDeck by Atrium Intelligence",
+  "surface": "BalanceMi",
+  "api_base": "/api/visiondeck/balancemi",
+  "source_openapi": "PUBLIC_DEPLOYMENT_OPENAPI_PATH",
+  "mode": "READ_ONLY_COCKPIT",
+  "same_endpoint_policy": "Use relative /api/visiondeck/balancemi paths. Do not hardcode private hostnames, tailnet URLs, localhost binds, or operator file-system paths.",
+  "actions": {
+    "domains":       { "method": "GET",  "path": "/domains" },
+    "categorize":    { "method": "POST", "path": "/categorize" },
+    "manual_intake": { "method": "POST", "path": "/intake/manual" }
+  },
+  "release_notes": {
+    "private_paths_removed": true,
+    "localhost_bind_removed": true,
+    "runtime_receipts_excluded": true,
+    "operator_landing_excluded": true
+  }
+}
